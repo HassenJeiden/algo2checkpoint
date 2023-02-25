@@ -1,0 +1,38 @@
+FUNCTION dot_product(v1,v2 : ARRAY_OF INTEGER[3];va,vb:INTEGER;) : BOOLEAN;
+VAR
+    ps:INTEGER
+    hortogonal:BOOLEAN
+BEGIN
+    ps:=v1[0]*v2[0]+v1[1]*v2[1]+v1[2]*v2[2];
+    IF (ps=0) THEN
+    hortogonal:=true;
+    END_IF
+    RETURN hortogonal ;
+END
+ALGORITHM Dot product
+VAR
+    n,x,y,z:INTEGER;
+    v1,v2:ARRAY_OF INTEGER[3];
+    MVector : ARRAY_OF INTEGER[n][3];
+    hortogonal:BOOLEAN;
+BEGIN
+WRITE("enter nuber of vectors");//how many vectors will be created
+Read
+Read(n);
+FOR i FROM 0 TO n-1 STEP 1  DO                              //remplire la matrix
+    FOR j FROM 0 TO 2 STEP 1  DO
+        WRITE("entre value " j+1 " of vector " i+1); 
+        Read(MVector[i][j]);
+    END_FOR
+FOR i FROM 0 TO n-2 STEP 1  DO                           //check ortogonality
+    v1:={MVector[i][0],MVector[i][1],MVector[i][2]};
+    FOR j FROM i+1 TO n-1 STEP 1  DO
+        v2:={MVector[j][0],MVector[j][1],MVector[j][2]};
+        hortogonal:= dot_product(v1,v2,i,j);
+        IF (hortogonal = true) THEN
+            set_instructionsWRITE("vector" i " et " j " are hortogonal");
+        END_IF
+    END_FOR
+END_FOR 
+END_FOR
+END

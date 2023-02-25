@@ -1,0 +1,44 @@
+ALGORITHM SumTheDifference
+var
+set1,set2 : ARRAY_OF INTEGER[5];
+sum,x:INTEGER=0;
+find:BOOLEAN;
+BEGEN
+FOR i FROM 0 TO 5 STEP 1  DO           //remplir set1
+    WRITE(entre ferst set values);
+    Read(set1[i]);
+END_FOR
+FOR i FROM 0 TO 5 STEP 1  DO            //remplir set2
+    WRITE(entre secand set values);
+    Read(set2[i]);
+END_FOR
+FOR i FROM 0 TO 5 STEP 1  DO  
+find := false;                         //reset find        
+    FOR j FROM 1 TO l STEP step  DO
+            IF (set1[i]= set2[j]) THEN
+            find:=true;
+            BREAK;
+            ELSE
+            find:=false;
+            END_IF
+    END_FOR
+    IF (find=false) THEN
+        sum:=sum+1;
+    END_IF
+END_FOR
+FOR i FROM 0 TO 5 STEP 1  DO  
+find := false;                         //reset find        
+    FOR j FROM 1 TO l STEP step  DO
+            IF (set2[i]= set1[j]) THEN
+            find:=true;
+            BREAK;
+            ELSE
+            find:=false;
+            END_IF
+    END_FOR
+    IF (find=false) THEN
+        sum:=sum+1;
+    END_IF
+END_FOR
+WRITE(sum);
+END_BEGEN
