@@ -1,0 +1,35 @@
+FUNCTION CharByChar(x,r:CHAR;word : ARRAY_OF STRING[n];) : BOOLEAN
+VAR
+    n:=word.lenght;
+    palindrom:BOOLEAN;
+BEGIN
+        IF (x=r) THEN
+            palindrom:=true;
+        ELSE
+            palindrom:=false;
+            Break;
+        END_IF
+    RETURN value ;
+END
+ALGORITHM Palindrom
+VAR
+    word : ARRAY_OF STRING[n]
+    z:INTEGER;
+BEGIN
+    read(word);
+    z:=word.lenght-1;
+    palindrom:=BOOLEAN;
+IF (z<1) THEN
+    write("Palindrom");
+ELSE
+    FOR i FROM 0 TO z/2 STEP 1  DO
+        CharByChar(i,z-i);
+    END_FOR
+    IF (palindrom:=true) THEN
+        write("Palindrom");
+    ELSE
+        write("Not Palindrom");
+    END_IF
+END_IF
+
+END
